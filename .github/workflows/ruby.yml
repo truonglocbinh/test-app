@@ -29,9 +29,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
+          ruby-version: 3.0.0
+          bundler-cache: true
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
@@ -51,7 +52,9 @@ jobs:
           POSTGRES_PASSWORD: postgres
         run: |
           cp config/database.ci.yml config/database.yml
-          rake db:create db:migrate
+          bundle exec rails db:drop
+          bundle exec rails db:create
+          bundle exec rails db:migrate
       - name: Run tests
         env:
           PGHOST: localhost
@@ -60,6 +63,6 @@ jobs:
           POSTGRES_PASSWORD: postgres
           PGPORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
-        run: rspec
+        run: bundle exec rspec
       - name: Run tests
         run: bundle exec rubocop

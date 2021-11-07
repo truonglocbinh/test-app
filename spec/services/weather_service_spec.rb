@@ -7,7 +7,7 @@ RSpec.describe WeatherService do
 
   it 'return cod' do
     # subject.stub(:get_data).and_return(http_response)
-    allow(subject).to receive(:get_data) { http_response }
+    allow(subject).to receive(:parse_data) { http_response }
 
     expect(subject.cod).to eq(200)
   end

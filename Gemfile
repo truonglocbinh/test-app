@@ -24,6 +24,7 @@ group :development, :test do
   gem 'faker'
   gem 'fuubar'
   gem 'rubocop-rails', require: false
+  gem 'rubocop-discourse'
 end
 
 group :development do
