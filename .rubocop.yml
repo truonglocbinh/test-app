@@ -1,0 +1,31 @@
+require: rubocop-rails
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'test/**/*'
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+# Customize rules
+Metrics/LineLength:
+  Max: 95
+
+MethodLength:
+  Max: 35
+
+Metrics/AbcSize:
+  Enabled: false
+
+BlockLength:
+  Max: 70
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
