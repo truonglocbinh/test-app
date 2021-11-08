@@ -3,12 +3,14 @@ Rails:
   Enabled: true
 
 AllCops:
+  TargetRubyVersion: 3.0
   Exclude:
     - 'bin/**/*'
     - 'test/**/*'
     - 'spec/**/*'
     - 'db/**/*'
     - 'config/**/*'
+    - 'vendor/**/*'
 MethodLength:
   Max: 35
 
