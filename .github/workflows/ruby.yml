@@ -69,12 +69,12 @@ jobs:
       - name: Run rubocop
         run: bundle exec rubocop
   deploy:
-    needs: test
+    needs: verify
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v2
      - uses: akhileshns/heroku-deploy@v3.6.8
-      with:
+       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: 'thawing-thicket-28781'
         heroku_email: 'truonglocbinh93@gmail.com'
