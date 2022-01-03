@@ -1,0 +1,5 @@
+# config/schedule.yml
+hard_worker:
+  cron: "* * * * *"
+  class: "HardWorker"
+  queue: "default"
